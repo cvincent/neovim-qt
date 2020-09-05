@@ -232,3 +232,8 @@ function! s:GuiScrollBar(enable) abort
 endfunction
 
 command! -nargs=1 GuiScrollBar call s:GuiScrollBar(<args>)
+
+function! s:GuiWindowOpacityCommand(value) abort
+  call rpcnotify(0, 'Gui', 'WindowOpacity', a:value)
+endfunction
+command! -nargs=1 GuiWindowOpacity call s:GuiWindowOpacityCommand("<args>")
